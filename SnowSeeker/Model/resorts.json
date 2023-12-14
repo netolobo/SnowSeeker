@@ -15,7 +15,9 @@
 			"Cross-country",
 			"Accommodation",
 			"Eco-friendly"
-		]
+		],
+        "favorite": false
+        
 	},
 	{
 		"id": "saint-anton-am-arlberg",
@@ -33,7 +35,8 @@
 			"Beginners",
 			"Accommodation",
 			"Eco-friendly"
-		]
+		],
+        "favorite": false
 	},
 	{
 		"id": "vail-ski-resort",
@@ -50,7 +53,8 @@
 			"Family",
 			"Cross-country",
 			"Beginners"
-		]
+		],
+        "favorite": false
 	},
 	{
 		"id": "squaw-valley",
@@ -67,7 +71,8 @@
 			"Family",
 			"Beginners",
 			"Accommodation"
-		]
+		],
+        "favorite": false
 	},
 	{
 		"id": "snowbird",
@@ -82,7 +87,8 @@
 		"runs": 170,
 		"facilities": [
 			"Family"
-		]
+		],
+        "favorite": false
 	},
 	{
 		"id": "deer-valley",
@@ -99,7 +105,8 @@
 			"Family",
 			"Beginners",
 			"Accommodation"
-		]
+		],
+        "favorite": false
 	},
 	{
 		"id": "la-plagne",
@@ -117,7 +124,8 @@
 			"Beginners",
 			"Accommodation",
 			"Eco-friendly"
-		]
+		],
+        "favorite": false
 	},
 	{
 		"id": "les-arcs",
@@ -135,7 +143,8 @@
 			"Cross-country",
 			"Beginners",
 			"Accommodation"
-		]
+		],
+        "favorite": false
 	},
 	{
 		"id": "alpe-dhuez",
@@ -153,7 +162,8 @@
 			"Beginners",
 			"Accommodation",
 			"Eco-friendly"
-		]
+		],
+        "favorite": false
 	},
 	{
 		"id": "portes-du-soleil",
@@ -170,7 +180,8 @@
 			"Cross-country",
 			"Accommodation",
 			"Eco-friendly"
-		]
+		],
+        "favorite": false
 	},
 	{
 		"id": "cervinia-valtournenche",
@@ -187,7 +198,8 @@
 			"Family",
 			"Cross-country",
 			"Beginners"
-		]
+		],
+        "favorite": false
 	},
 	{
 		"id": "whistler-blackcomb",
@@ -206,6 +218,7 @@
 			"Beginners",
 			"Accommodation",
 			"Eco-friendly"
-		]
+		],
+        "favorite": false
 	}
 ]

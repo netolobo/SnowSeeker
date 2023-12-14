@@ -18,17 +18,12 @@ extension View {
 }
 
 struct ContentView: View {
-    let resorts: [Resort] = Bundle.main.decode("resorts.json")
-    
+    private var viewModel = ContentViewModel()
     @State private var searchText = ""
-    
-    private var filteredResorts: [Resort] {
-        return searchText.isEmpty ? resorts : resorts.filter { $0.name.localizedCaseInsensitiveContains(searchText)}
-    }
     
     var body: some View {
         NavigationStack {
-            List(filteredResorts) { resort in
+            List(viewModel.filteredResorts) { resort in
                 NavigationLink {
                     ResortView(resort: resort)
                 } label: {
@@ -49,10 +44,18 @@ struct ContentView: View {
                         Text("\(resort.runs) runs")
                             .foregroundStyle(.secondary)
                     }
+                    Button {
+                        viewModel.updateResort(resort: resort)
+                    } label: {
+                        Image(systemName: resort.favorite ? "star.fill" : "star")
+                    }
                 }
             }
-            .navigationTitle("Retorts")
+            .navigationTitle("Resorts")
             .searchable(text: $searchText, prompt: "Search for a resort")
+            .onChange(of: searchText) {
+                viewModel.searchText = searchText
+            }
             
 //            WelcomeView()
         }
