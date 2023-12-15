@@ -24,51 +24,58 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             List(viewModel.filteredResorts) { resort in
-                NavigationLink {
-                    ResortView(resort: resort)
-                } label: {
-                    Image(resort.country)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(width: 40, height: 25)
-                        .clipShape(RoundedRectangle(cornerRadius: 5))
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.black,lineWidth: 1)
-                        )
-                    
-                    VStack(alignment: .leading) {
-                        Text(resort.name)
-                            .font(.headline)
+                NavigationLink(destination: ResortView(resort: resort)) {
+                    HStack {
+                        Image(resort.country)
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 40, height: 25)
+                            .clipShape(RoundedRectangle(cornerRadius: 5))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 5)
+                                    .stroke(.black, lineWidth: 1)
+                            )
                         
-                        Text("\(resort.runs) runs")
-                            .foregroundStyle(.secondary)
-                    }
-                    Button {
-                        viewModel.updateResort(resort: resort)
-                    } label: {
-                        Image(systemName: resort.favorite ? "star.fill" : "star")
+                        VStack(alignment: .leading) {
+                            Text(resort.name)
+                                .font(.headline)
+                            
+                            Text("\(resort.runs) runs")
+                                .foregroundStyle(.secondary)
+                        }
+                        
+                        Spacer()
+                        
+                        Button {
+                            withAnimation {
+                                viewModel.favoriteResort(resort: resort)
+                            }
+                            
+                        } label: {
+                            Image(systemName: resort.favorite ? "star.fill" : "star")
+                        }
+                        .buttonStyle(BorderlessButtonStyle())//without this the tap doesn't work
                     }
                 }
             }
             .navigationTitle("Resorts")
             .toolbar {
-                    Menu {
-                        Button("Name") { viewModel.order(by: .name) }
-                        
-                        Button("Country") {
-                            viewModel.order(by: .country)
-                        }
-                        
-                        Button("Favorites") {
-                            viewModel.order(by: .favorite)
-                        }
-                        
-                        Button("None") {
-                            viewModel.order(by: .none)
-                        }
-                        
-                    }label: {
+                Menu {
+                    Button("Name") { viewModel.order(by: .name) }
+                    
+                    Button("Country") {
+                        viewModel.order(by: .country)
+                    }
+                    
+                    Button("Favorites") {
+                        viewModel.order(by: .favorite)
+                    }
+                    
+                    Button("None") {
+                        viewModel.order(by: .none)
+                    }
+                    
+                } label: {
                     Image(systemName: "line.3.horizontal.decrease.circle")
                 }
                 
@@ -83,7 +90,7 @@ struct ContentView: View {
             .onAppear { viewModel.loadResorts() }
             
             
-//            WelcomeView()
+            //WelcomeView()
         }
         .phoneOnlyNavigationView()
     }

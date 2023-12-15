@@ -37,10 +37,17 @@ class ContentViewModel {
         resorts = Bundle.main.decode("resorts.json")
     }
     
-    func updateResort(resort: Resort) {
+    func favoriteResort(resort: Resort) {
+        var updatedResort = resort
+        updatedResort.favorite.toggle()
         if let index = resorts.firstIndex(of: resort) {
-            resorts[index] = resort
+            resorts[index] = updatedResort
         }
+        if let index = filteredResorts.firstIndex(of: resort) {
+            filteredResorts[index] = updatedResort
+        }
+        
+        loadResorts()
     }
     
     func search(_ searchText: String) {
