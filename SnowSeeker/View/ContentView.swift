@@ -52,10 +52,36 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("Resorts")
+            .toolbar {
+                    Menu {
+                        Button("Name") { viewModel.order(by: .name) }
+                        
+                        Button("Country") {
+                            viewModel.order(by: .country)
+                        }
+                        
+                        Button("Favorites") {
+                            viewModel.order(by: .favorite)
+                        }
+                        
+                        Button("None") {
+                            viewModel.order(by: .none)
+                        }
+                        
+                    }label: {
+                    Image(systemName: "line.3.horizontal.decrease.circle")
+                }
+                
+            }
             .searchable(text: $searchText, prompt: "Search for a resort")
             .onChange(of: searchText) {
-                viewModel.searchText = searchText
+                viewModel.search(searchText)
             }
+            .onChange(of: viewModel.order) {
+                viewModel.loadResorts()
+            }
+            .onAppear { viewModel.loadResorts() }
+            
             
 //            WelcomeView()
         }

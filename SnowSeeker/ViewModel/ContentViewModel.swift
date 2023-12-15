@@ -9,13 +9,11 @@ import Foundation
 
 @Observable
 class ContentViewModel {
-    let savePath = FileManager.documentsDirectory.appending(path: "Resorts")
+    private let savePath = FileManager.documentsDirectory.appending(path: "Resorts")
     
-    var searchText = ""
+    var order = Order.none
     
-    var filteredResorts: [Resort] {
-        return searchText.isEmpty ? resorts : resorts.filter { $0.name.localizedCaseInsensitiveContains(searchText)}
-    }
+    var filteredResorts = [Resort]()
     
     private var resorts = [Resort]() {
         didSet {
@@ -44,4 +42,26 @@ class ContentViewModel {
             resorts[index] = resort
         }
     }
+    
+    func search(_ searchText: String) {
+        filteredResorts = searchText.isEmpty ? resorts : resorts.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
+    }
+    
+    func order(by order: Order) {
+        self.order = order
+    }
+    
+    func loadResorts() {
+        switch order {
+        case .none:
+            filteredResorts = resorts
+        case .name:
+            filteredResorts = resorts.sorted { $0.name < $1.name }
+        case .country:
+            filteredResorts = resorts.sorted { $0.country < $1.country }
+        case .favorite:
+            filteredResorts = resorts.filter { $0.favorite }
+        }
+    }
+    
 }

@@ -20,6 +20,7 @@
 		5A7FB8CD2B2A6CD900953AEC /* ResortDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FB8CC2B2A6CD900953AEC /* ResortDetailsView.swift */; };
 		5A7FB8D02B2BAAD700953AEC /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FB8CF2B2BAAD700953AEC /* ContentViewModel.swift */; };
 		5A7FB8D32B2BACF400953AEC /* FileManager-DocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FB8D22B2BACF300953AEC /* FileManager-DocumentsDirectory.swift */; };
+		5A7FB8D72B2BBEE600953AEC /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FB8D62B2BBEE600953AEC /* Order.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		5A7FB8CC2B2A6CD900953AEC /* ResortDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResortDetailsView.swift; sourceTree = "<group>"; };
 		5A7FB8CF2B2BAAD700953AEC /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		5A7FB8D22B2BACF300953AEC /* FileManager-DocumentsDirectory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentsDirectory.swift"; sourceTree = "<group>"; };
+		5A7FB8D62B2BBEE600953AEC /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				5A7FB8C22B2A616300953AEC /* Resort.swift */,
 				5A7FB8C02B2A60EB00953AEC /* resorts.json */,
+				5A7FB8D62B2BBEE600953AEC /* Order.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 			files = (
 				5A7FB8C72B2A676200953AEC /* WelcomeView.swift in Sources */,
 				5A7FB8CB2B2A6BDC00953AEC /* SkiDetailsView.swift in Sources */,
+				5A7FB8D72B2BBEE600953AEC /* Order.swift in Sources */,
 				5A7FB8CD2B2A6CD900953AEC /* ResortDetailsView.swift in Sources */,
 				5A7FB8B52B2A5F5400953AEC /* ContentView.swift in Sources */,
 				5A7FB8C52B2A639F00953AEC /* Bundle+Decodable.swift in Sources */,
